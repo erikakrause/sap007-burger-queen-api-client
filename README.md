@@ -1,70 +1,179 @@
-# Getting Started with Create React App
+# Burger Queen (API Client)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![burger-queen](https://www.gannett-cdn.com/presto/2021/03/10/PDTF/b32ccf1e-aee3-4250-9feb-d9e4a3fba0c5-White_Castle_The_Original_Slider_Sides.jpg?width=660&height=594&fit=crop&format=pjpg&auto=webp)
 
-## Available Scripts
+## Índice
 
-In the project directory, you can run:
+* [1. Prefácio](#1-prefácio)
+* [2. Resumo do projeto](#2-resumo-do-projeto)
+* [3. Protótipo](#3-prototipo)
+* [4. Considerações gerais](#4-considerações-gerais)
+* [5. Critérios de aceitação mínimos do projeto](#5-critérios-mínimos-de-aceitação-do-projeto)
 
-### `npm start`
+***
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 1. Prefácio
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 2. Resumo do projeto
 
-### `npm test`
+Um pequeno restaurante de hambúrgueres, que está crescendo, necessita uma
+interface em que se possa realizar pedidos utilizando um _tablet_, e enviá-los
+para a cozinha para que sejam preparados de forma ordenada e eficiente.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+Este projeto tem duas áreas: interface (cliente) e API (servidor). Nosso
+cliente nos pediu para desenvolver uma interface que se integre com a API.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Desta vez temos um projeto 100% por demanda. Você sempre pode (e deve) fazer
+sugestões de melhora e mudança, mas muitas vezes trabalhará em um projeto em que
+primeiro deve se assegurar de cumprir os requisitos.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Estas são as informações que temos do cliente:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+> Somos **White Castle**, um fast food 24hrs.
+>
+>A nossa proposta de serviço 24 horas foi muito bem recebida e, para continuar a
+>crescer, precisamos de um sistema que nos ajude a receber pedidos de nossos
+>clientes.
+>
+>Nós temos 2 menus. Um muito simples para o café da manhã:
+>
+>| Ítem                      |Preço R$|
+>|---------------------------|------|
+>| Café americano            |    5 |
+>| Café com leite            |    7 |
+>| Sanduíche de presunto e queijo|   10 |
+>| Suco de fruta natural     |    7 |
+>
+>E outro menu para o resto do dia:
+>
+>| Ítem                      |Preço |
+>|---------------------------|------|
+>|**Hambúrgueres**           |   **R$**   |
+>|Hambúrguer simples         |    10|
+>|Hambúrguer duplo           |    15|
+>|**Acompanhamentos**        |   **R$**   |
+>|Batata frita               |     5|
+>|Anéis de cebola            |     5|
+>|**Bebidas**                |   **R$**   |
+>|Água 500ml                 |     5|
+>|Água 750ml                 |     7|
+>|Bebida gaseificada 500ml   |     7|
+>|Bebida gaseificada 750ml   |    10|
+>
+> **Importante:** Os clientes podem escolher entre hambúrgueres de carne bovina,
+> frango ou vegetariano. Além disso, por um adicional de R\$ 1,00 , eles podem
+> adicionar queijo **ou** ovo.
+>
+>Nossos clientes são bastante indecisos, por isso é muito comum que eles mudem o
+>seu pedido várias vezes antes de finalizar.
+A interface deve mostrar os dois menus (café da manhã e restante do dia), cada
+um com todos os seus _produtos_. O usuário deve poder escolher que _produtos_
+adicionar e a interface deve mostrar o _resumo do pedido_ com o custo total.
 
-### `npm run eject`
+## Protótipo
+*Protótipo de alta fidelidade página de login*
+<div>
+  <img src="img-readme/page-login.png" width="500px"/>
+  <img src="img-readme/page-register.png" width="500px"/>
+  </div>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 3. Objetivos de aprendizagem
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Reflita e depois enumere os objetivos que quer alcançar e aplique no seu projeto. Pense nisso para decidir sua estratégia de trabalho.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+#### [História de usuário 1] Garçom/Garçonete deve poder entrar no sistema
 
-## Learn More
+Eu, como garçom/garçonete quero entrar no sistema de pedidos.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+##### Critérios de aceitação
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+O que deve acontecer para satisfazer as necessidades do usuário?
 
-### Code Splitting
+* Acessar uma tela de login.
+* Inserir email e senha.
+* Receber mensagens de erros compreensíveis, conforme o erro e as informações inseridas.
+* Entrar no sistema de pedidos caso as credenciais forem corretas.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+##### Definição de pronto
 
-### Analyzing the Bundle Size
+O acordado abaixo deve acontecer para dizer que a história está terminada:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+* Você deve ter recebido _code review_ de pelo menos uma parceira.
+* Fez _testes_ unitários e, além disso, testou seu produto manualmente.
+* Você fez _testes_ de usabilidade e incorporou o _feedback_ do usuário.
+* Você deu deploy de seu aplicativo e marcou sua versão (tag git).
 
-### Making a Progressive Web App
+***
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+#### [História de usuário 2] Garçom/Garçonete deve ser capaz de anotar o pedido do cliente
 
-### Advanced Configuration
+Eu como garçom/garçonete quero poder anotar o pedido de um cliente para não
+depender da minha memória, saber quanto cobrar e poder enviar os pedidos para a
+cozinha para serem preparados em ordem.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+##### Critérios de aceitação
 
-### Deployment
+O que deve acontecer para satisfazer as necessidades do usuário?
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+* Anotar o nome do cliente.
+* Adicionar produtos aos pedidos.
+* Excluir produtos.
+* Ver resumo e o total da compra.
+* Enviar o pedido para a cozinha (guardar em algum banco de dados).
+* Funcionar bem em um _tablet_.
 
-### `npm run build` fails to minify
+##### Definição de pronto
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+O acordado abaixo deve acontecer para dizer que a história está terminada:
+
+* Você deve ter recebido _code review_ de pelo menos uma parceira.
+* Fez _testes_ unitários e, além disso, testou seu produto manualmente.
+* Você fez _testes_ de usabilidade e incorporou o _feedback_ do usuário.
+* Você deu deploy de seu aplicativo e marcou sua versão (tag git).
+
+***
+
+#### [História de usuário 3] Chefe de cozinha deve ver os pedidos
+
+Eu como chefe de cozinha quero ver os pedidos dos clientes em ordem, poder
+marcar que estão prontos e poder notificar os garçons/garçonetes que o pedido
+está pronto para ser entregue ao cliente.
+
+##### Critérios de aceitação
+
+* Ver os pedidos ordenados à medida em que são feitos.
+* Marcar os pedidos que foram preparados e estão prontos para serem servidos.
+* Ver o tempo que levou para preparar o pedido desde que chegou, até ser marcado
+  como concluído.
+
+##### Definição de pronto
+
+* Você deve ter recebido _code review_ de pelo menos uma parceira.
+* Fez _testes_ unitários e, além disso, testou seu produto manualmente.
+* Você fez _testes_ de usabilidade e incorporou o _feedback_ do usuário.
+* Você deu deploy de seu aplicativo e marcou sua versão (tag git).
+
+***
+
+#### [História de usuário 4] Garçom/Garçonete deve ver os pedidos prontos para servir
+
+Eu como garçom/garçonete quero ver os pedidos que estão prontos para entregá-los
+rapidamente aos clientes.
+
+##### Critérios de aceitação
+
+* Ver a lista de pedidos prontos para servir.
+* Marcar os pedidos que foram entregues.
+
+##### Definição de pronto
+
+* Você deve ter recebido _code review_ de pelo menos uma parceira.
+* Fez _testes_ unitários e, além disso, testou seu produto manualmente.
+* Você fez _testes_ de usabilidade e incorporou o _feedback_ do usuário.
+* Você deu deploy de seu aplicativo e marcou sua versão (tag git).
+* Os dados devem ser mantidos intactos, mesmo depois que um pedido for
+  finalizado. Tudo isso para poder ter estatísticas no futuro.
+
+***
