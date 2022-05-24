@@ -1,5 +1,7 @@
-.logo {
-  width:100px;
+.LogoImg {
+  width:200px;
   display:flex;
   justify-content: center;
+  margin:10px auto;
+  margin-top:40px;
 }
