@@ -1,4 +1,4 @@
-# Burger Queen (API Client)
+# White Castle - projeto Burguer Queen (API Client)
 
 ![burger-queen](https://www.gannett-cdn.com/presto/2021/03/10/PDTF/b32ccf1e-aee3-4250-9feb-d9e4a3fba0c5-White_Castle_The_Original_Slider_Sides.jpg?width=660&height=594&fit=crop&format=pjpg&auto=webp)
 
@@ -13,6 +13,10 @@
 ***
 
 ## 1. Prefácio
+### 1.1 Produto 
+ White Castle é uma rede de hamburgueria e considerara uma das pioneiras no ramo de *fast food*, e está em espação nacional e para atender de forma rápida e eficiente seus clientes, foi desenvolvida uma comanda de uso interno para os garçons e cozinheiros,e assim conseguirem administrar os pedidos, envio para cozinha, tempo de preparo e entrega.
+
+Segundo o Dev Média: "Single Page Applications (SPA) são aplicações cuja funcionalidade está concentrada em uma única página. Ao invés de recarregar toda a página ou redirecionar o usuário para uma página nova, apenas o conteúdo principal é atualizado de forma assíncrona, mantendo toda a estrutura da página estática."
 
 ## 2. Resumo do projeto
 
@@ -74,8 +78,8 @@ adicionar e a interface deve mostrar o _resumo do pedido_ com o custo total.
 ## Protótipo
 *Protótipo de alta fidelidade página de login*
 <div>
-  <img src="img-readme/page-login.png" width="500px"/>
-  <img src="img-readme/page-register.png" width="500px"/>
+  <img src="img-readme/Login.png" width="300px"/>
+  <img src="img-readme/Register.png" width="300px"/>
   </div>
 
 ## 3. Objetivos de aprendizagem
