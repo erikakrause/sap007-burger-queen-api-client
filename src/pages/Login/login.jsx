@@ -27,6 +27,7 @@ function Login() {
       })*/
 
 return (
+    
     <div>
       <Logo/>
       <h2>Bem-vindo</h2>
@@ -35,7 +36,7 @@ return (
       <Input
       type ='email'
       //value = {email}
-      placeholder='Digite seu e-mail'
+      placeholder='exemplo@exemplo.com'
      // onChange={(e) => setEmail(e.target.value)}
       />
       <Input
