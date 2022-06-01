@@ -1,58 +1,71 @@
-//import { useState } from 'react';
-import Logo from '../../components/Logo';
-import Input from '../../components/Input';
-import Button from '../../components/Button';
-import Select from '../../components/Select';
-import { } from './style.css'
-//import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import Logo from '../../components/Logo/logo';
+//import Select from '../../components/Select/select';
+import Input from '../../components/Input/input';
+import Button from '../../components/Button/button';
+import { createUser } from '../../services/api';
+import { setToken } from '../../services/token';
+import './style.css';
+import { useNavigate, useLocation } from 'react-router-dom';
 
-function Login() {
-/*const [email, setEmail] = useState('');
+function Register() {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [errorMsg, setErrorMsg] = useState('');
+  const navigate = useNavigate();
 
   const location = useLocation();
-  let message = ''
   if (location.state) {
-    message = location.state.message
+    //message = location.state.message
   }
 
-  function handlerClick(e) {
+  function handleSubmit(e) {
     e.preventDefault();
-    userLogin(email, password)
+    createUser(name, email, password)
       .then((response) => {
         if (response.status === 200) {
           return response.json();
         }
-        setErrorMsg(codeError(response));
-      })*/
+        // setErrorMsg(codeError(response));
+      })
+      .then((data) => {
+        setToken(data.token);
+        if (data.role === 'atendment') {
+          navigate('/Register');
+        }
+      })
+      .catch((error) => console.error(error));
+    console.log('submit', name, email, password);
+  }
 
-return (
-    
+  return (
     <div>
-      <Logo/>
-    <form>
-      <Select />
-      <Input 
-      type='name'
-      placeholder='Nome Completo'/>
-      <Input
-      type ='email'
-      //value = {email}
-      placeholder='exemplo@exemplo.com'
-     // onChange={(e) => setEmail(e.target.value)}
-      />
-      <Input
-      type ='password'
-     //value = {password}
-      placeholder='Digite sua senha'
-      //onChange={(e) => setPassword(e.target.value)}
-      />
-
-      <Button type='button' children='Cadastrar'/>
-    </form>
+      <Logo />
+      <h3>Crie sua conta!</h3>
+      <form>
+        <Input
+          type="name"
+          value={name}
+          placeholder="Nome Completo"
+          onChange={(e) => setName(e.target.value)}
+        />
+        <Input
+          type="email"
+          value={email}
+          placeholder="exemplo@exemplo.com"
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <Input
+          type="password"
+          value={password}
+          placeholder="Digite sua senha"
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <Button type="button" children="Cadastrar" onClick={handleSubmit} />
+      </form>
+      <h4>Já tem conta? <a href="/login">Faça login</a></h4>
     </div>
-    
   );
 }
-export default Login;
+
+export default Register;
