@@ -1,27 +1,37 @@
-const urlUsers = 'https://lab-api-bq.herokuapp.com/users';
-const urlAuth = 'https://lab-api-bq.herokuapp.com/auth';
+import { setToken } from '../services/token';
+const URL = 'https://lab-api-bq.herokuapp.com';
 
-const createUser = (nameUser, emailUser, passwordUser, role) => {
-  return fetch(urlUsers, {
+export const createUser = (name, email, password, role) => {
+  return fetch(`${URL}/users`, {
     method:'POST',
     headers: {'Content-type': 'application/json'},
     body: JSON.stringify({
-      name: nameUser,
-      email: emailUser,
-      password: passwordUser,
+      name: name,
+      email: email,
+      password: password,
       role: role,
       restaurant: 'White Castle'
     })
+  });
+};
 
-  })
-}
-const userLogin = (emailUser, passwordUser) => {
-  return fetch(urlAuth, {
+export const userLogin = (email, password) => {
+  return fetch(`${URL}/auth`, {
     method:'POST',
     headers: {'Content-type': 'application/json'},
     body: JSON.stringify({
-      email:emailUser,
-      password:passwordUser,
+      email:email,
+      password:password,
     })
-  })
-}
+  });
+};
+
+export const getProduct = () => {
+  return fetch(`${URL}/products`,{
+    method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": setToken("token")
+      }
+  });
+};
