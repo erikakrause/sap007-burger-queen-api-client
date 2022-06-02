@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import Logo from '../../components/Logo/logo';
-//import Select from '../../components/Select/select';
+import Select from '../../components/Select/select';
 import Input from '../../components/Input/input';
 import Button from '../../components/Button/button';
 import { createUser } from '../../services/api';
 import { setToken } from '../../services/token';
 import './style.css';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, Link } from 'react-router-dom';
 
 function Register() {
   const [name, setName] = useState('');
@@ -41,8 +41,18 @@ function Register() {
   return (
     <div>
       <Logo />
-      <h3>Crie sua conta!</h3>
+      <h1>Crie sua conta!</h1>
       <form>
+        <Select
+          className="select-style"
+          //name={role}
+          optionValues={[
+            { id: 'selected', title: 'Cargo' },
+            { id: 'saloon', title: 'Garçom' },
+            { id: 'kitchen', title: 'Cozinheiro' },
+          ]}
+          //onChange={(e) => setRole(e.target.value)}
+        />
         <Input
           type="name"
           value={name}
@@ -63,7 +73,7 @@ function Register() {
         />
         <Button type="button" children="Cadastrar" onClick={handleSubmit} />
       </form>
-      <h4>Já tem conta? <a href="/login">Faça login</a></h4>
+      <p>Já tem conta? <Link to="/">Faça login</Link></p>
     </div>
   );
 }
