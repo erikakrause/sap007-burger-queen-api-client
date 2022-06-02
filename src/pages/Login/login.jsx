@@ -33,7 +33,7 @@ function Login() {
         }
       })
       .catch((error) => console.error(error));
-      console.log('submit', email, password)
+    console.log('submit', email, password);
   }
 
   return (
@@ -55,11 +55,8 @@ function Login() {
           onChange={(e) => setPassword(e.target.value)}
         />
         <Button type="button" children="Entrar" onClick={handleSubmit} />
-        <h4>Não tem uma conta?</h4>
-        <Link to="/register" className="registerUser">
-          <Button type="button" children="Cadastrar" onClick={handleSubmit} />
-        </Link>
       </form>
+      <p>Não tem uma conta? <Link to="/register" className="registerUser">Cadastre-se</Link></p>
     </div>
   );
 }
