@@ -1,0 +1,15 @@
+.Select {
+  width:260px;
+  height: 40px;
+  display:flex;
+  justify-content: center;
+  margin:10px auto;
+  border-radius:10px;
+  text-align:center;
+  background-color: #034AA6;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer; 
+}

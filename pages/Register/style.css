@@ -1,0 +1,14 @@
+body {
+  flex-direction: column;
+}
+
+h1 {
+  font-size: 24px;
+  color: #034AA6;
+  text-align: center;
+}
+
+p {
+  font-size: 14px;
+  text-align: center;
+}
