@@ -4,8 +4,8 @@ import Select from '../../components/Select/select';
 import Input from '../../components/Input/input';
 import Button from '../../components/Button/button';
 import { createUser } from '../../services/api';
-import { setToken } from '../../services/token';
-import './style.css';
+import { saveToken } from '../../services/token';
+import './register.css';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 
 function Register() {
@@ -29,7 +29,7 @@ function Register() {
         // setErrorMsg(codeError(response));
       })
       .then((data) => {
-        setToken(data.token);
+        saveToken(data.token);
         if (data.role === 'atendment') {
           navigate('/Register');
         }

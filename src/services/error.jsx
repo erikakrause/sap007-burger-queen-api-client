@@ -1,4 +1,4 @@
-export function codeError (response){
+export function errorMsg (response){
     switch (response.status){
         case 400:
             return"Preencha todos os campos";
@@ -12,3 +12,5 @@ export function codeError (response){
             return "Ocorreu algum erro";
     }
 }
+
+export default errorMsg;
