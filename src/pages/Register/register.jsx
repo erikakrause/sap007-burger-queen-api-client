@@ -5,8 +5,9 @@ import Input from '../../components/Input/input';
 import Button from '../../components/Button/button';
 import { createUser } from '../../services/api';
 import { saveToken } from '../../services/token';
-import './register.css';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
+import './register.css';
+
 
 function Register() {
   const [name, setName] = useState('');
@@ -73,7 +74,7 @@ function Register() {
         />
         <Button type="button" children="Cadastrar" onClick={handleSubmit} />
       </form>
-      <p>Já tem conta? <Link to="/">Faça login</Link></p>
+      <p>Já tem conta? <Link to="/" className="loginUser">Faça login </Link></p>
     </div>
   );
 }
