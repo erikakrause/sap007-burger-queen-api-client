@@ -1,7 +1,8 @@
 .LogoImg {
-  width:150px;
+  width:180px;
   display:flex;
   justify-content: center;
   margin:10px auto;
   margin-top:40px;
+  padding:50px;
 }
