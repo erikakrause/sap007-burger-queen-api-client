@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Logo from '../../components/Logo/logo';
 import Input from '../../components/Input/input';
 import Button from '../../components/Button/button';
+import Footer from '../../components/Footer/footer';
 import { userLogin } from '../../services/api';
 import { saveToken } from '../../services/token';
 import { errorMsg } from '../../services/error';
@@ -61,6 +62,7 @@ function Login() {
           Cadastre-se
         </Link>
       </p>
+      <Footer />
     </div>
   );
 }

@@ -1,0 +1,17 @@
+.footerContainer {
+  bottom: 0;
+  width: 100%;
+  margin: 0;
+}
+
+.textFooter {
+  font-weight: lighter;
+  text-align: center;
+  font-size: 15px;
+  margin: 0;
+}
+
+.github {
+  text-decoration: none;
+  color: #F2811D;
+}

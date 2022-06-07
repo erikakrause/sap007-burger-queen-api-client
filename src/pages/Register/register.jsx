@@ -3,6 +3,7 @@ import Logo from '../../components/Logo/logo';
 import Select from '../../components/Select/select';
 import Input from '../../components/Input/input';
 import Button from '../../components/Button/button';
+import Footer from '../../components/Footer/footer';
 import { createUser } from '../../services/api';
 import { saveToken } from '../../services/token';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
@@ -75,6 +76,7 @@ function Register() {
         <Button type="button" children="Cadastrar" onClick={handleSubmit} />
       </form>
       <p>Já tem conta? <Link to="/" className="loginUser">Faça login </Link></p>
+      <Footer />
     </div>
   );
 }
