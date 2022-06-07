@@ -3,19 +3,15 @@ import Logo from '../../components/Logo/logo';
 import Input from '../../components/Input/input';
 import Button from '../../components/Button/button';
 import { userLogin } from '../../services/api';
-import { setToken } from '../../services/token';
-import './style.css';
-import { useNavigate, useLocation, Link } from 'react-router-dom';
+import { saveToken } from '../../services/token';
+import { errorMsg } from '../../services/error';
+import { useNavigate, Link } from 'react-router-dom';
+import './login.css';
 
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
-
-  const location = useLocation();
-  if (location.state) {
-    //message = location.state.message
-  }
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -24,12 +20,14 @@ function Login() {
         if (response.status === 200) {
           return response.json();
         }
-        // setErrorMsg(codeError(response));
+        errorMsg(response);
       })
       .then((data) => {
-        setToken(data.token);
-        if (data.role === 'atendment') {
-          navigate('/Register');
+        saveToken(data.token);
+        if (data.role === 'hall') {
+          navigate('/menu');
+        } else {
+          alert('Usuário não identificado, realize seu cadastro!');
         }
       })
       .catch((error) => console.error(error));
@@ -39,9 +37,10 @@ function Login() {
   return (
     <div>
       <Logo />
-      <h2>Bem-vindo</h2>
-      <h3>Faça login para anotar os pedidos</h3>
+
       <form>
+        <h1>Bem-vindo</h1>
+        <h2>Faça login para anotar os pedidos</h2>
         <Input
           type="email"
           value={email}
@@ -56,7 +55,12 @@ function Login() {
         />
         <Button type="button" children="Entrar" onClick={handleSubmit} />
       </form>
-      <p>Não tem uma conta? <Link to="/register" className="registerUser">Cadastre-se</Link></p>
+      <p>
+        Não tem uma conta?{' '}
+        <Link to="/register" className="registerUser">
+          Cadastre-se
+        </Link>
+      </p>
     </div>
   );
 }
