@@ -4,39 +4,35 @@ import Select from '../../components/Select/select';
 import Input from '../../components/Input/input';
 import Button from '../../components/Button/button';
 import { createUser } from '../../services/api';
-import { saveToken } from '../../services/token';
-import { useNavigate, useLocation, Link } from 'react-router-dom';
+import { saveToken, saveRole } from '../../services/token';
+import { errorMsg } from '../../services/error';
+import { useNavigate, Link } from 'react-router-dom';
 import './register.css';
-
 
 function Register() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [role, setRole] = useState('');
   const navigate = useNavigate();
-
-  const location = useLocation();
-  if (location.state) {
-    //message = location.state.message
-  }
 
   function handleSubmit(e) {
     e.preventDefault();
-    createUser(name, email, password)
+    createUser(name, email, password, role)
       .then((response) => {
         if (response.status === 200) {
           return response.json();
         }
-        // setErrorMsg(codeError(response));
       })
       .then((data) => {
         saveToken(data.token);
-        if (data.role === 'atendment') {
-          navigate('/Register');
-        }
+        saveRole(data.role);
+        navigate('/');
       })
-      .catch((error) => console.error(error));
-    console.log('submit', name, email, password);
+      .catch((error) => {
+        errorMsg(error);
+        console.log('submit', name, email, password);
+      });
   }
 
   return (
@@ -52,7 +48,7 @@ function Register() {
             { id: 'saloon', title: 'Garçom' },
             { id: 'kitchen', title: 'Cozinheiro' },
           ]}
-          //onChange={(e) => setRole(e.target.value)}
+          onChange={(e) => setRole(e.target.value)}
         />
         <Input
           type="name"
@@ -74,7 +70,12 @@ function Register() {
         />
         <Button type="button" children="Cadastrar" onClick={handleSubmit} />
       </form>
-      <p>Já tem conta? <Link to="/" className="loginUser">Faça login </Link></p>
+      <p>
+        Já tem conta?{' '}
+        <Link to="/" className="loginUser">
+          Faça login{' '}
+        </Link>
+      </p>
     </div>
   );
 }
