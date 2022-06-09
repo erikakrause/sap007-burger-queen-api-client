@@ -25,7 +25,7 @@ function Login() {
       .then((data) => {
         saveToken(data.token);
         if (data.role === 'saloon') {
-          navigate('/menu');
+          navigate('/saloon');
         } else {
           alert('Usuário não identificado, realize seu cadastro!');
         }
