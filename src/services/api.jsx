@@ -28,10 +28,35 @@ export const userLogin = (email, password) => {
 
 export const getProduct = () => {
   return fetch(`${URL}/products`,{
-    method: "GET",
+    method: 'GET',
       headers: {
-        "Content-Type": "application/json",
-        "Authorization": saveToken("token")
-      }
+        'Content-Type': 'application/json',
+        'Authorization': saveToken('token')},
+  });
+};
+
+export const createOrder = (client, table, products) => {
+  return fetch(`${URL}/orders`,{
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': saveToken('token')},
+    body: JSON.stringify({
+    client: client,
+    table: table,
+    products: products,  
+    })  
+  });
+};
+
+export const orderStatus = (orderId, status) => {
+  return fetch(`${URL}/orders/${orderId}`,{
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': saveToken('token')},
+    body: JSON.stringify({
+    status: status, 
+    })  
   });
 };
