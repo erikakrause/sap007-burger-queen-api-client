@@ -1,5 +1,5 @@
 import Button from '../../components/Button/button';
-import './style.module.css';
+//import './style.module.css';
 export const ProductCard = ({image, price, name,flavor, complement, onClick}) => {
   return (
     <div>
@@ -16,3 +16,5 @@ export const ProductCard = ({image, price, name,flavor, complement, onClick}) =>
     </div>
   );
 };
+
+export default ProductCard;

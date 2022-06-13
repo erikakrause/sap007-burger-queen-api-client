@@ -4,3 +4,5 @@ export const saveToken = (token) => {
 };
 
 export const saveRole = ((role) => localStorage.setItem("role", role));
+
+export const removeToken = ((token) => localStorage.removeItem("token", token));
