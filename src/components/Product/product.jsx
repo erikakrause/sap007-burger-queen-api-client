@@ -17,4 +17,4 @@ export const ProductCard = ({image, price, name,flavor, complement, onClick}) =>
   );
 };
 
-export default ProductCard;
+export default ProductCard
