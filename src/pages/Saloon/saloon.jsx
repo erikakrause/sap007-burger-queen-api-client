@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { createOrder, getProduct } from '../../services/api';
-//import { removeToken } from '../../services/token';
+import { createOrder, getMenu } from '../../services/api';
+import { removeToken } from '../../services/token';
 import { filterProducts } from '../../services/filter';
 //import { errorMsg } from '../../services/error';
 import Logo from '../../components/Logo/logo';
 import Button from '../../components/Button/button';
 import Input from '../../components/Input/input';
 import Select from '../../components/Select/select';
-import Product from '../../components/Product/product';
+import ProductCard from '../../components/ProductCard/productCard';
 import Command from '../../components/Command/command';
 
 export const Saloon = () => {
@@ -19,13 +19,13 @@ export const Saloon = () => {
   const [sumOrders, setSumOrders] = useState(0);
   const navigate = useNavigate();
 
-  //const handleLogout = () => {
-  //removeToken();
-  //  navigate('/');
-  //  };
+  const handleLogout = () => {
+  removeToken();
+  navigate('/');
+  };
 
   const showMenu = (option) => {
-    getProduct()
+    getMenu()
       .then((response) => response.json())
       .then((data) => setProducts(filterProducts(data, option)));
   };
@@ -45,9 +45,11 @@ export const Saloon = () => {
     } else {
       const product = { ...item, qtd: 1 };
       console.log('else');
+      newOrderProducts.push(product);
     }
     setOrderProducts(newOrderProducts);
   };
+
   const handleRemoveOrders = (item) => {
     const verifyIdProduct = orderProducts.find(
       (itemOrder) => itemOrder.id === item.id
@@ -56,8 +58,7 @@ export const Saloon = () => {
     if (verifyIdProduct.qtd > 1) {
       verifyIdProduct.qtd -= 1;
     } else {
-      newOrderProducts = newOrderProducts.filter(
-        (itemOrder) => itemOrder.id != item.id
+      newOrderProducts = newOrderProducts.filter((itemOrder) => itemOrder.id !== item.id
       );
     }
     setOrderProducts(newOrderProducts);
@@ -116,7 +117,7 @@ export const Saloon = () => {
             <ul className="all-products">
               {products.map((item) => {
                 return (
-                  <Product
+                  <ProductCard
                     key={item.id}
                     image={item.image}
                     name={item.name}

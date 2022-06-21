@@ -1,5 +1,5 @@
-import Button from '../../components/Button/button';
-//import './style.module.css';
+import Button from '../Button/button';
+
 export const ProductCard = ({image, price, name,flavor, complement, onClick}) => {
   return (
     <div>

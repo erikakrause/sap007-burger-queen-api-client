@@ -26,7 +26,7 @@ export const userLogin = (email, password) => {
   });
 };
 
-export const getProduct = () => {
+export const getMenu = () => {
   return fetch(`${URL}/products`,{
     method: 'GET',
       headers: {
@@ -46,6 +46,13 @@ export const createOrder = (client, table, products) => {
     table: table,
     products: products,  
     })  
+  });
+};
+
+export const getProducts = () => {
+  return fetch("https://lab-api-bq.herokuapp.com/orders",{
+  method: "GET",
+  headers: {"Content-Type": "application/json", Authorization: saveToken('token') },
   });
 };
 
