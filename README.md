@@ -1,5 +1,7 @@
 # White Castle - projeto Burguer Queen (API Client)
 
+#### Andamento do projeto: *Incompleto*
+
 ![burger-queen](https://www.gannett-cdn.com/presto/2021/03/10/PDTF/b32ccf1e-aee3-4250-9feb-d9e4a3fba0c5-White_Castle_The_Original_Slider_Sides.jpg?width=660&height=594&fit=crop&format=pjpg&auto=webp)
 
 ## Índice
@@ -76,11 +78,15 @@ um com todos os seus _produtos_. O usuário deve poder escolher que _produtos_
 adicionar e a interface deve mostrar o _resumo do pedido_ com o custo total.
 
 ## Protótipo
-*Protótipo de alta fidelidade página de login*
+*Protótipo de alta fidelidade página de login e cadastro
 <div>
   <img src="img-readme/Login.png" width="300px"/>
   <img src="img-readme/Register.png" width="300px"/>
   </div>
+
+  *Protótipo de alta fidelidade Salão
+  <div>
+  <img src="img-readme/Salao.png" width="300px"/>
 
 ## 3. Objetivos de aprendizagem
 
