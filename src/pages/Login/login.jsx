@@ -3,7 +3,7 @@ import Logo from '../../components/Logo/logo';
 import Input from '../../components/Input/input';
 import Button from '../../components/Button/button';
 import { userLogin } from '../../services/api';
-import { saveToken } from '../../services/token';
+import { getToken } from '../../services/token';
 import { errorMsg } from '../../services/error';
 import { useNavigate, Link } from 'react-router-dom';
 import './login.css';
@@ -23,7 +23,7 @@ function Login() {
         errorMsg(response);
       })
       .then((data) => {
-        saveToken(data.token);
+        getToken(data.token);
         if (data.role === 'saloon') {
           navigate('/saloon');
         } else {

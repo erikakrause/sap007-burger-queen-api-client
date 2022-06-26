@@ -1,4 +1,4 @@
-import { saveToken } from '../services/token';
+import { getToken } from '../services/token';
 const URL = 'https://lab-api-bq.herokuapp.com';
 
 export const createUser = (name, email, password, role) => {
@@ -31,7 +31,7 @@ export const getMenu = () => {
     method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': saveToken('token')},
+        'Authorization': getToken()},
   });
 };
 
@@ -40,7 +40,7 @@ export const createOrder = (client, table, products) => {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': saveToken('token')},
+      'Authorization': getToken()},
     body: JSON.stringify({
     client: client,
     table: table,
@@ -52,7 +52,7 @@ export const createOrder = (client, table, products) => {
 export const getProducts = () => {
   return fetch("https://lab-api-bq.herokuapp.com/orders",{
   method: "GET",
-  headers: {"Content-Type": "application/json", Authorization: saveToken('token') },
+  headers: {"Content-Type": "application/json", Authorization: getToken() },
   });
 };
 
@@ -61,7 +61,7 @@ export const orderStatus = (orderId, status) => {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': saveToken('token')},
+      'Authorization': getToken()},
     body: JSON.stringify({
     status: status, 
     })  
